@@ -1,0 +1,47 @@
+{
+  "name": "artisan-build/laravel-time-machine",
+  "description": "Use an environment variable to manipulate the value of the Laravel now() helper",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ed Grosvenor",
+      "email": "ed.grosvenor@wickedviral.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.3|^8.0",
+    "illuminate/support": "^7.0|^8.0",
+    "funkjedi/composer-include-files": "^1.1"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "friendsofphp/php-cs-fixer": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ArtisanBuild\\LaravelTimeMachine\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/",
+      "App\\": "vendor/orchestra/testbench-core/laravel/app"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": "ArtisanBuild\\LaravelTimeMachine\\TimeMachineServiceProvider"
+    }
+  },
+  "scripts": {
+    "lint": "php-cs-fixer fix -v",
+    "test:unit": "vendor/bin/phpunit",
+    "test": [
+      "@lint",
+      "@test:unit"
+    ]
+  }
+}

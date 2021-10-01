@@ -7,7 +7,15 @@ This package replaces the `now()` helper in Laravel so that you can use an envir
 composer require artisan-build/laravel-time-machine
 ```
 
-This will probably require some sort of composer.json manipulation in the app, but I'm not sure yet.
+In the composer.json file of your project, add this to the extra section:
+
+```json
+"include_files": [
+  "vendor/artisan-build/laravel-time-machine/scripts/time-machine.php"
+]
+```
+
+Then run `composer dump-autoload`. This will cause our version of `now()` to be loaded before Laravel's helper which means that laravel won't load its own. 
 
 ### Usage
 
